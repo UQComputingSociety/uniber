@@ -20,18 +20,21 @@ master
 
 ### Directory Structure
 ```
-/bin          - MEAN Entry point
-/database     - Database files (Exports + patches)
-/lib          - All other server files
-/public       - All publicly accessible files
-    /css      - CSS
-    /js       - Javascript
-    /lib      - Third party client side files
-/routes       - All webservices
-    /api      - API only routes
-    index.js  - All web page routes
-/views        - Templates to be rendered (.ejs only currently)
-    /shared   - All shared view components
+/bin                - MEAN Entry point
+/database           -  Database files (Exports + patches)
+/lib                - All other server files
+/public             - All publicly accessible files
+    /css            - CSS
+    /js             - Javascript
+        /components - Angular components
+        /core       - Boot level angular components
+    /lib            - Third party client side files
+    /templates      - All HTML templates for angular
+/routes             - All webservices
+    /api            - API only routes
+    index.js        - All web page routes
+/views              - Templates to be rendered (.ejs only currently)
+    /shared         - All shared view components
 ```    
 ### Running A Local Copy
 First clone the repository
