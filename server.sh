@@ -15,7 +15,7 @@ mkdir -p /var/log/uq-parking
 if [ $1 = "stop" ]; then
     forever stop app.js
 else
-    PORT=8002 forever start -l $DIR$FOREVER_LOG -o $DIR$STDOUT -e $DIR$STDERR --pidFile $DIR$PID --append ./bin/www 
+    PORT=8003 forever start -l $DIR$FOREVER_LOG -o $DIR$STDOUT -e $DIR$STDERR --pidFile $DIR$PID --append ./bin/www 
 fi
 
 
