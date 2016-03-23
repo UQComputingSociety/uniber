@@ -21,7 +21,7 @@ master
 ### Directory Structure
 ```
 /bin                - MEAN Entry point
-/database           -  Database files (Exports + patches)
+/database           - Database files (Exports + patches)
 /lib                - All other server files
 /public             - All publicly accessible files
     /css            - CSS
