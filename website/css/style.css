@@ -6,6 +6,22 @@
  * Made By MaterializeCSS.com
  */
 
+.green-normal {
+    background: #2ecc71;
+}
+
+.green-normal-text {
+    color: #2ecc71;
+}
+
+.green-dark {
+
+}
+
+.black-dark{
+    background-color: #0F0F0F !important;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -16,7 +32,7 @@ p {
 }
 
 .button-collapse {
-  color: #26a69a;
+  color: #2ecc71;
 }
 
 .parallax-container {
