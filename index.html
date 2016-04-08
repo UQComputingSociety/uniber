@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>UniDrop</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="green-normal" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">UniDrop</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+
+
+    <div class="section no-pad-bot" >
+      <div class="container">
+        <br><br>
+        <h1 class="header center green-normal-text ">UniDrop</h1>
+        <div class="row center">
+          <h5 class="header col s12">Find some travel buddies!</h5>
+        </div>
+<!--         <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light green-normal lighten-1">Get Started</a>
+        </div>
+         -->
+
+
+      </div>
+    </div>
+
+
+    <div class="parallax" style="background: rgba(0,0,0,.4); z-index:-1;"></div>
+    <div class="parallax" style="min-width: 100%; background: black; z-index:-2;"><div id="map"  style="height: 100%; min-width: 100%;"></div></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">schedule</i></h2>
+            <h5 class="center">Reduce Travel Time</h5>
+
+            <p class="light">By finding people that share your route, you don't
+                have to walk / travel to the bus stop, wait for the bus or
+                suffer the consequences of missing a bus. Everything's pre-planned
+                to be easy as.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">group</i></h2>
+            <h5 class="center">Meet Friends</h5>
+            <p class="light">UniDrop helps you meet friends that share the same
+                travel route and annoying 8AM lecture as you. For longer
+                commutes the presence of a friend helps reduce the mundaness of
+                travel.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">credit_card</i></h2>
+            <h5 class="center">Save Money</h5>
+
+            <p class="light">
+                Get together and pitch in for the drivers parking costs. It
+                helps the driver out and it's cheaper than catching the slow, old
+                bus!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">"I have so many unused seats, it'd be great if I could share the ride."</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <a name="about"></a>
+          <h4>About</h4>
+          <p class="left-align light">The aim of UniDrop is to provide a 
+              platform where students can find others travelling the same
+              route as them. This ensures that no seats are left unused
+              reducing travel time for those that would normally catch the bus
+              and reducing congestion for all others. Furthermore, with a 
+              "voluntary" donation to the driver, the drivers parking fee
+              can be reduced for less than the cost of the bus!
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <footer class="page-footer black-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Who are we?</h5>
+          <p class="grey-text text-lighten-4">We are a team of students from
+          The University of Queensland working on reducing congestion, travel 
+          time, and cost for unis students.</p>
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="text-lighten-3 grey-text" href="http://uqcs.org.au">UQCS</a>
+      </div>
+    </div>
+  </footer>
+
+    <!--  Scripts-->
+    <script>
+    window.map;
+    function initMap() {
+        var start = {lat: -27.492727, lng: 152.974169};
+        var uq = {lat: -27.496591, lng: 153.012965};
+
+        //Initialise Map
+        window.map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uq,
+            disableDefaultUI: true
+        });
+
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+            map: map
+        });
+
+        // Prepare Route REquest
+        var request = {
+            destination: start,
+            origin: uq,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+
+        // Get Route
+        var directionsService = new google.maps.DirectionsService();
+            directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                // Display the route on the map.
+                directionsDisplay.setDirections(response);
+            }
+        });
+
+        // Lock Zoom Levels
+        var opt = { minZoom: 15, maxZoom: 20 };
+        map.setOptions(opt);
+
+        // Recenter Map on Resize
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(uq);
+        });
+    }
+
+    </script>
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYK4q0_H1gmruure62HMX1mbkgzcfofnc&callback=initMap"
+    async defer></script>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
